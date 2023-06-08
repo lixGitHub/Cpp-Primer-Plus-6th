@@ -10,7 +10,13 @@ int main ()
     cout << cube(x);
     cout << " = cube of " << x << endl;
     cout << refcube(x);
-    cout << " = cube of " << x << endl;
+    cout << " = refcube of " << x << endl;
+
+    // [ERROR] cannot compile.
+    // cout << refcube(x + 3);
+    // cout << " = refcube of " << x+3 << endl;
+
+
     // cin.get();
     return 0;
 }

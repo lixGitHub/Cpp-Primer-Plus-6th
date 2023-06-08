@@ -3,6 +3,16 @@
 
 // an inline function definition
 inline double square(double x) { return x * x; }
+
+// add macro to compare.
+// #define square(x) x*x
+
+// test inline function cannot be recursive
+inline int fibonacci(int x){
+    if(x==1) {return x;}
+    else {return x*fibonacci(x-1);} 
+}
+
 int main()
 {
     using namespace std;
@@ -16,5 +26,8 @@ int main()
     cout << ", c squared = " << square(c++) << "\n";
     cout << "Now c = " << c << "\n";
     // cin.get();
+
+    int d = 5;
+    cout << d << " factorial = " << fibonacci(d) << endl;
     return 0;  
 }

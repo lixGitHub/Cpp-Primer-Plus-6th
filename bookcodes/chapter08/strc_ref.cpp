@@ -13,6 +13,8 @@ void display(const free_throws & ft);
 void set_pc(free_throws & ft);
 free_throws & accumulate(free_throws &target, const free_throws &source);
 
+free_throws accumulate_test(free_throws & target);
+
 int main()
 {
     free_throws one = {"Ifelsa Branch", 13, 14};
@@ -39,6 +41,7 @@ int main()
     set_pc(four);
 // ill-advised assignment
     accumulate(dup,five) = four;
+    accumulate_test(dup) = four;
     std::cout << "Displaying dup after ill-advised assignment:\n";
     display(dup);
     // std::cin.get();
@@ -67,4 +70,9 @@ free_throws & accumulate(free_throws & target, const free_throws & source)
     target.made += source.made;
     set_pc(target);
     return target;
+}
+
+free_throws accumulate_test(free_throws & target){
+    free_throws copy_target = target;
+    return copy_target;
 }

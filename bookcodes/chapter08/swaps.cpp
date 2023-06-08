@@ -3,6 +3,12 @@
 void swapr(int & a, int & b);   // a, b are aliases for ints
 void swapp(int * p, int * q);   // p, q are addresses of ints
 void swapv(int a, int b);       // a, b are new variables
+void swap_lix(int &a, int &b);  // swap by xor.
+
+void just_print(const int & a){
+    std::cout << "can print " << a << std::endl;
+}
+
 int main()
 {
     using namespace std;
@@ -26,6 +32,19 @@ int main()
     swapv(wallet1, wallet2);   // pass values of variables
     cout << "wallet1 = $" << wallet1;
     cout << " wallet2 = $" << wallet2 << endl;
+
+    cout << "Trying to use xor to swap:\n";
+    swap_lix(wallet1, wallet2);   // pass values of variables
+    cout << "wallet1 = $" << wallet1;
+    cout << " wallet2 = $" << wallet2 << endl;
+
+    // [ERROR]
+    long a = 3, b = 5;
+    // swapr(a, b);
+
+    // [OK]
+    just_print(a);
+
     // cin.get();
     return 0; 
 }
@@ -56,3 +75,19 @@ void swapv(int a, int b)        // try using values
     a = b;
     b = temp; 
 }
+
+void swap_lix(int &a, int &b){
+    a = a ^ b;
+    b = a ^ b;
+    a = a ^ b;
+}
+
+// 1 xor 1 = 0
+// 1 xor 0 = 1
+// 0 xor 0 = 0
+// 0 xor 1 = 1
+// a xor b xor b = a
+// a xor b xor a = b
+// t = a xor b;
+// b = t xor b;
+// a = t xor a;

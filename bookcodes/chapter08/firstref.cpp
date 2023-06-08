@@ -4,6 +4,7 @@ int main()
 {
     using namespace std;
     int rats = 101;
+    double test = 10;
     int & rodents = rats;   // rodents is a reference
 
     cout << "rats = " << rats;
@@ -16,6 +17,7 @@ int main()
 // addresses to type unsigned
     cout << "rats address = " << &rats;
     cout << ", rodents address = " << &rodents << endl;
+    cout << "double address: " << sizeof(&test) << endl;
     // cin.get();
     return 0; 
 }
