@@ -17,7 +17,8 @@ int main()
 // addresses to type unsigned
     cout << "rats address = " << &rats;
     cout << ", rodents address = " << &rodents << endl;
-    cout << "double address: " << sizeof(&test) << endl;
+    cout << "double address: " << sizeof(&test) << endl; // address: 8 byte
+    cout << "int address: " << sizeof(&rats) << endl; // address: 8 byte 64bit
     // cin.get();
     return 0; 
 }

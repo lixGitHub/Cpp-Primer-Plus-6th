@@ -4,6 +4,71 @@
 #include <cstdlib>
 using namespace std;
 
+class Student
+{
+private:
+    /* data */
+public:
+    Student(/* args */);
+    ~Student();
+    virtual void printinfo() = 0;
+};
+
+Student::Student(/* args */)
+{
+}
+
+Student::~Student()
+{
+}
+
+class Undergraduate : public Student
+{
+private:
+    /* data */
+public:
+    Undergraduate(/* args */);
+    ~Undergraduate();
+    virtual void printinfo(){
+        std::cout << "This is Undergraduate\n";
+    }
+};
+
+Undergraduate::Undergraduate(/* args */)
+{
+}
+
+Undergraduate::~Undergraduate()
+{
+}
+
+
+class Graduate : public Student
+{
+private:
+    /* data */
+public:
+    Graduate(/* args */);
+    ~Graduate();
+    virtual void printinfo(){
+        std::cout << "This is Graduate\n";
+    }
+};
+
+Graduate::Graduate(/* args */)
+{
+}
+
+Graduate::~Graduate()
+{
+}
+
+
+void class_print(Student & stu){
+    stu.printinfo();
+}
+
+
 void file_it(ostream & os, double fo, const double fe[],int n);
 const int LIMIT = 5;
 int main()
@@ -14,7 +79,7 @@ int main()
     if (!fout.is_open())
     {
         cout << "Can't open " << fn << ". Bye.\n";
-        exit(EXIT_FAILURE);
+        exit(EXIT_FAILURE); // [NOTICE] exit with 1, can check with echo $? 
     }
     double objective;
     cout << "Enter the focal length of your "
@@ -33,6 +98,13 @@ int main()
     cout << "Done\n";
     // cin.get();
     // cin.get();
+
+    // my test
+    Undergraduate s1;
+    Graduate s2;
+    class_print(s1);
+    class_print(s2);
+
     return 0;
 }
 

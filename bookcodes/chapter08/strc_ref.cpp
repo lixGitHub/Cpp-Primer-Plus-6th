@@ -14,9 +14,12 @@ void set_pc(free_throws & ft);
 free_throws & accumulate(free_throws &target, const free_throws &source);
 
 free_throws accumulate_test(free_throws & target);
+free_throws & return_empty(free_throws & input);
+const free_throws & clone(free_throws & ft);
 
 int main()
 {
+    // [NOTICE] partial initialization, rest part is 0
     free_throws one = {"Ifelsa Branch", 13, 14};
     free_throws two = {"Andor Knott", 10, 16};
     free_throws three = {"Minnie Max", 7, 9};
@@ -40,11 +43,25 @@ int main()
     display(dup);
     set_pc(four);
 // ill-advised assignment
-    accumulate(dup,five) = four;
-    accumulate_test(dup) = four;
+    // accumulate(dup,five) = four;
+    accumulate_test(dup) = four; //[NOTICE] weird, compile should not pass, but it pass, textbook(p267) is wrong
     std::cout << "Displaying dup after ill-advised assignment:\n";
     display(dup);
     // std::cin.get();
+
+    std::cout << "Extra Test" << std::endl;
+// [NOTICE] return invalid reference. compile error.
+    // free_throws test = return_empty(one);
+    // display(test);
+
+// [NOTICE] return function allocated variable.
+    free_throws test2 = clone(one);
+
+// [NOTICE] return const reference.
+    // clone(one) = two; // [NOTICE] compile error, returned const reference is a unchangeable lvalue.
+
+    display(test2);
+
     return 0;
 }
 
@@ -69,10 +86,27 @@ free_throws & accumulate(free_throws & target, const free_throws & source)
     target.attempts += source.attempts;
     target.made += source.made;
     set_pc(target);
-    return target;
+    return target; // [NOTICE] Return a reference.
 }
 
 free_throws accumulate_test(free_throws & target){
     free_throws copy_target = target;
     return copy_target;
+    // return target;
+}
+
+free_throws & return_empty(free_throws & input){
+    free_throws temp_target = input;
+    // return temp_target; // [NOTICE] compile error.
+    return input;
+}
+
+const free_throws & clone(free_throws & ft){
+    free_throws * ft_ptr = new free_throws(ft);
+    return *ft_ptr;
+
+    //[NOTICE] textbook example(p268), Segmentation fault.
+    // free_throws *pt;
+    // *pt = ft;
+    // return *pt;
 }

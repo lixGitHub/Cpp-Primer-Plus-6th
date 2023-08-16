@@ -38,7 +38,7 @@ int main()
     cout << "wallet1 = $" << wallet1;
     cout << " wallet2 = $" << wallet2 << endl;
 
-    // [ERROR]
+    // [ERROR] a reference of type "int &" (not const-qualified) cannot be initialized with a value of type "long"C/C++(434)
     long a = 3, b = 5;
     // swapr(a, b);
 
