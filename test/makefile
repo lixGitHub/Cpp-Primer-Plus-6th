@@ -3,7 +3,7 @@
 #####################
 # SOURCE	:= week3.cpp week3_lib.cpp 
 # OJBS	:= week3.o weeek3_lib.o
-TARGET	:= pointer swap
+TARGET	:= pointer swap crash crash2
 
 CC		:= gcc
 CXX		:= g++
@@ -24,11 +24,11 @@ pointer: pointer.cpp
 swap: swap.cpp
 	$(CXX) -o $@ $^
 
-# secref: secref.cpp
-# 	$(CXX) -o $@ $^
+crash: crash.cpp
+	$(CXX) -o $@ $^
 
-# swaps: swaps.cpp
-# 	$(CXX) -o $@ $^
+crash2: crash2.cpp
+	$(CXX) -o $@ $^
 
 # cubes: cubes.cpp
 # 	$(CXX) -o $@ $^

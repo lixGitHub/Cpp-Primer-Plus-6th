@@ -20,8 +20,8 @@ How to Fix:
 To output the numeric value of a uint8_t variable, you can cast it to an integer type before printing:
 */
 int main() {
-    uint8_t value = 65; // ASCII value for 'A'
+    uint8_t value = 0; // ASCII value for 'A'
 
     std::cout << value << std::endl; // Outputs 'A'
-    std::cout << static_cast<int>(value) << std::endl; // Outputs 65
+    std::cout << static_cast<uint32_t>(value) << std::endl; // Outputs 65
 }
