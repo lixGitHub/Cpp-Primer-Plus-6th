@@ -3,7 +3,7 @@
 #####################
 # SOURCE	:= week3.cpp week3_lib.cpp 
 # OJBS	:= week3.o weeek3_lib.o
-TARGET	:= pointer swap crash crash2
+TARGET	:= pointer swap crash crash2 crash_log time exception
 
 CC		:= gcc
 CXX		:= g++
@@ -30,14 +30,14 @@ crash: crash.cpp
 crash2: crash2.cpp
 	$(CXX) -o $@ $^
 
-# cubes: cubes.cpp
-# 	$(CXX) -o $@ $^
+time: time.cpp
+	$(CXX) -o $@ $^
 
-# strc_ref: strc_ref.cpp
-# 	$(CXX) -o $@ $^
+crash_log: crash_log.cpp
+	$(CXX) -o $@ $^
 
-# filefunct: filefunct.cpp
-# 	$(CXX) -o $@ $^
+exception: exception.cpp
+	$(CXX) -o $@ $^
 
 # left: left.cpp
 # 	$(CXX) 	-o $@ $^

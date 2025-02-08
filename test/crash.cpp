@@ -41,8 +41,8 @@ int main()
     std::cout << "Program running. Send SIGABRT signal to "
             "terminate.\n";
 
-    // send the SIGABRT signal by calling the abort function
-    abort();
+    // // send the SIGABRT signal by calling the abort function
+    // abort();
 
     // Cause segment fault.
     SegmentFault();

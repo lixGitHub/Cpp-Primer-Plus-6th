@@ -3,7 +3,8 @@
 #include <execinfo.h>
 #include <unistd.h>
 
-void handle_segfault(int sig) {
+void handle_segfault(int sig)
+{
     void *array[10];
     size_t size;
 
@@ -22,7 +23,8 @@ void SegmentFault()
     *p = 10; // This will cause a segmentation fault
 }
 
-int main() {
+int main()
+{
     signal(SIGSEGV, handle_segfault);
 
     // int *p = nullptr;
